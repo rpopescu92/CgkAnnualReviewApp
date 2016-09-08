@@ -1,5 +1,17 @@
 {
-  "name":"CegekaApp",
-  "version":"0.1.0",
-  "appPath":"src/main"
+  "name": "CegekaApp",
+  "version": "0.1.0",
+  "appPath": "src/main",
+  "dependencies": {
+    "angular": "1.5.2",
+    "angular-material": "latest",
+    "bootstrap": "3.3.7",
+    "angular-ui-router": "latest",
+    "angular-animate": "latest",
+    "angular-aria": "latest",
+    "angular-material-data-table": "latest"
+  },
+  "resolutions": {
+    "angular": "~1.5.5"
+  }
 }

@@ -1,3 +1,5 @@
-target
 .idea/workspace.xml
+/src/main/resources/static/lib/bower_components
+/.idea
+/target
 .idea/tasks.xml
