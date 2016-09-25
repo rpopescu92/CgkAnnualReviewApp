@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AngularJS</title>
-
-    <!-- bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <title>Cegeka Annual Review App</title>
 
     <!-- bower:css -->
     <!-- endinject -->
@@ -15,8 +12,9 @@
     <!-- endinject -->
     <link rel="stylesheet" href="/lib/bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
-<body ng-app="bankApp">
-
+<body ng-app="bankApp" ng-strict-di>
+    <div ui-view="navbar"></div>
+    <div ui-view="content"></div>
 
 
 <!-- inject:js vendor.js -->
@@ -25,10 +23,14 @@
 
 <!-- inject:js app.js -->
 <!-- endinject -->
-<script src="/app/app.module.js" type="text/javascript"></script>
-<script src="/app/app.state.js" type="text/javascript"></script>
+<script src="/lib/bower_components/angular/angular.js"></script>
+<script src="/lib/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <!-- my scripts here -->
-<script type="text/javascript" src="FormsModule.js"></script>
+<script src="app/app.module.js"></script>
+<script src="app/app.state.js"></script>
+<script src="app/home/home.state.js"></script>
+<script src="app/navbar/navbar.controller.js"></script>
+<script src="app/home/home.controller.js"></script>
 
 </body>
 </html>

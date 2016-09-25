@@ -1,7 +1,7 @@
 (function(){
     'use strict';
 
-    angular.module('bankApp',[])
+    angular.module('bankApp')
             .controller('NavbarController', NavbarController);
 
     NavbarController.$inject = ['$scope'];

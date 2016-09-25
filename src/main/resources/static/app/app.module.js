@@ -1,6 +1,3 @@
 (function(){
-    'use strict';
-
-    angular.module('bankApp',
-                ['ui.router']);
+    angular.module('bankApp', ['ui.router']);
 })();
