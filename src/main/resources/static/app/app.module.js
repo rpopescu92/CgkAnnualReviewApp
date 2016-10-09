@@ -1,3 +1,3 @@
 (function(){
-    angular.module('bankApp', ['ui.router']);
+    angular.module('bankApp', ['ui.router', 'ngMaterial']);
 })();
