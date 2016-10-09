@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import ro.cegeka.app.domain.model.UserEntity;
+import ro.cegeka.app.domain.model.User;
 import ro.cegeka.app.services.UserService;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<UserEntity> getUsers() {
+    public List<User> getUsers() {
         userService.init();
         return userService.getUsers();
     }

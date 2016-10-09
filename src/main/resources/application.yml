@@ -9,3 +9,7 @@ spring:
      hibernate:
           show_sql: true
           ddl-auto: update
+
+   jwt:
+          secret: blablabl12345blatesteudsad14841221
+          tokenValidityInSeconds: 3600

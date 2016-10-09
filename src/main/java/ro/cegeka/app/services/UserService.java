@@ -2,7 +2,7 @@ package ro.cegeka.app.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ro.cegeka.app.domain.model.UserEntity;
+import ro.cegeka.app.domain.model.User;
 import ro.cegeka.app.domain.repository.UserRepository;
 
 import java.util.Date;
@@ -18,7 +18,7 @@ public class UserService {
 
     public void init() {
         for (int i = 0; i < 10; i++) {
-            userRepository.save(UserEntity
+            userRepository.save(User
                     .builder()
                     .id(Long.valueOf(i))
                     .firstName("Mihai" + i)
@@ -29,7 +29,7 @@ public class UserService {
         }
     }
 
-    public List<UserEntity> getUsers() {
+    public List<User> getUsers() {
         return userRepository.findAll();
     }
 }
