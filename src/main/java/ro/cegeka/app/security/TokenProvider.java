@@ -15,6 +15,7 @@ import ro.cegeka.app.util.JwtSecurityDetails;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
@@ -53,14 +54,9 @@ public class TokenProvider {
     public Authentication getAuthentication(String token) {
         Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
 
-        Collection<? extends GrantedAuthority> authorities =
-                Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
-                        .map(SimpleGrantedAuthority::new)
-                        .collect(Collectors.toList());
+        User principal = new User(claims.getSubject(), "", new ArrayList<>());
 
-        User principal = new User(claims.getSubject(), "", authorities);
-
-        return new UsernamePasswordAuthenticationToken(principal, "", authorities);
+        return new UsernamePasswordAuthenticationToken(principal, "", new ArrayList<>());
     }
 
     public boolean validateToken(String authToken) {
