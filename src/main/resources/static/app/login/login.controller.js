@@ -14,6 +14,7 @@
         $scope.user = null;
         $scope.password = null;
         $scope.login = login;
+        $scope.register = register;
 
         $scope.authenticationError = false;
 

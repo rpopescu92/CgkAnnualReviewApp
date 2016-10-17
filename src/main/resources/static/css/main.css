@@ -1,3 +1,8 @@
  .navbarDiv md-content{
              background-color: #E3F2FD !important;
              color: black;}
+
+ .registerForm {
+         width:100%;
+         text-size:14px
+ }
