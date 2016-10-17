@@ -32,7 +32,7 @@
             });
 
             var stateChangeSuccess = $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-                var titleKey = 'Khala';
+                var titleKey = 'CegekaApp';
 
                 if (toState.data.pageTitle) {
                     titleKey = toState.data.pageTitle;

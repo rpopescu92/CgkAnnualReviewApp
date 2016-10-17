@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void login(String userName, String password){
-
+    public void register(User user){
+        userService.registerUser(user);
     }
 }

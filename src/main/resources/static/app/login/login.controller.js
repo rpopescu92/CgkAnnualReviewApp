@@ -42,6 +42,11 @@
             console.log($scope.user+","+$scope.password);
         }
 
+        function register() {
+            console.log("register");
+            $state.go('register');
+        }
+
     }
 
 

@@ -51,4 +51,8 @@ public class UserService {
     public Optional<User> getAuthenticatedUserAsOptional() {
         return Optional.ofNullable(getAuthenticatedUser());
     }
+
+    public void registerUser(User user) {
+        userRepository.save(user);
+    }
 }
