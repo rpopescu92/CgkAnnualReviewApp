@@ -24,4 +24,9 @@ public class UserController {
         userService.init();
         return userService.getUsers();
     }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public void login(String userName, String password){
+
+    }
 }

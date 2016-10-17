@@ -14,7 +14,7 @@
 
         function init() {
             //TODO check AuthorizationService
-            $state.go('loginState');
+//            $state.go('loginState');
         }
 
     }

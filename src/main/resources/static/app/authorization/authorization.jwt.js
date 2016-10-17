@@ -11,7 +11,8 @@
             return {
                 getToken: getToken,
                 login: login,
-                logout: logout
+                logout: logout,
+                loginWithToken: loginWithToken
             }
 
             function getToken() {
@@ -20,14 +21,13 @@
 
             function login(credentials) {
                 var data = {
-                    user_name: credentials.userName,
+                    user_name: credentials.user,
                     password:  credentials.password
                 }
-
                 return $http.post('/api/authenticate', data)
-                            .then(function(data) {
+                            .success(function(data, status, headers) {
                                 var bearerToken = headers('Authorization');
-                                if(angular.isDefined(bearerToken) && bearerToken.slice(0,7) === 'Bearer') {
+                                if(angular.isDefined(bearerToken) && bearerToken.slice(0,7) === 'Bearer ') {
                                     var jwt = bearerToken.slice(7, bearerToken.length);
                                     $sessionStorage.authenticationToken = jwt;
 
@@ -41,6 +41,19 @@
             function logout() {
                 delete $sessionStorage.authenticationToken;
             }
+
+            function loginWithToken(jwt) {
+                 var deferred = $q.defer();
+
+                 if (angular.isDefined(jwt)) {
+                     $sessionStorage.authenticationToken = jwt;
+                     deferred.resolve(jwt);
+                  } else {
+                     deferred.reject();
+                   }
+
+                 return deferred.promise;
+                    }
         }
 
 })();

@@ -9,7 +9,7 @@
 
     function stateConfig($stateProvider, $urlRouterProvider) {
        $urlRouterProvider.otherwise('/login');
-       $stateProvider.state('loginState', {
+       $stateProvider.state('login', {
             url: '/login',
             parent: 'app',
             views: {

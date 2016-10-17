@@ -7,15 +7,15 @@
     <!-- bower:css -->
     <!-- endinject -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="/lib/bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="/lib/bower_components/angular-material-data-table/dist/md-data-table.css">
-    <link rel="stylesheet" href="/lib/bower_components/angular-material/angular-material.min.css">
     <!-- endinject -->
     <link rel="stylesheet" href="/lib/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body ng-app="bankApp" ng-strict-di>
-    <div ui-view="navbar"></div>
-    <div ui-view="content"></div>
+<div ui-view="navbar"></div>
+<div ui-view="content"></div>
 
 
 <!-- inject:js vendor.js -->
@@ -26,11 +26,13 @@
 <!-- endinject -->
 <script src="/lib/bower_components/angular/angular.js"></script>
 <script src="/lib/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/lib/bower_components/angular-aria/angular-aria.min.js"></script>
-    <script src="/lib/bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/lib/bower_components/angular-material/angular-material.min.js"></script>
-    <script src="/lib/bower_components/jquery/dist/jquery.js"></script>
+<script src="/lib/bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="/lib/bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/lib/bower_components/angular-material/angular-material.min.js"></script>
+<script src="/lib/bower_components/jquery/dist/jquery.js"></script>
+<script src="/lib/bower_components/ngstorage/ngStorage.min.js"></script>
+<script src="/lib/bower_components/angular-cache-buster/angular-cache-buster.js"></script>
 <!-- my scripts here -->
 <script src="app/app.module.js"></script>
 <script src="app/app.state.js"></script>
@@ -40,6 +42,13 @@
 <script src="app/login/login.controller.js"></script>
 <script src="app/login/login.state.js"></script>
 <script src="app/authorization/authorization.service.js"></script>
+<script src="app/authorization/authorization.jwt.js"></script>
+<script src="app/authorization/principal.service.js"></script>
+<script src="app/authorization/account.service.js"></script>
+<script src="app/app.state.handler.js"></script>
+<script src="app/config/auth.expired.interceptor.js"></script>
+<script src="app/config/auth.interceptor.js"></script>
+<script src="app/config/http.config.js"></script>
 
 </body>
 </html>

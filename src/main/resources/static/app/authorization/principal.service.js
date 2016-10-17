@@ -13,7 +13,8 @@
         return {
             identity: identity,
             isAuthenticated: isAuthenticated,
-            isIdentityResolved: isIdentityResolved
+            isIdentityResolved: isIdentityResolved,
+            authenticate: authenticate
         }
 
          function authenticate(identity) {

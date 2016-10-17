@@ -16,6 +16,13 @@
                     controller: 'NavbarController'
                 }
             }
+//            ,
+//            resolve: {
+//                 authorize: ['AuthorizationService',
+//                 function (AuthorizationService) {
+//                     return AuthorizationService.authorize();
+//                 }]
+//            }
         });
     }
 })();
