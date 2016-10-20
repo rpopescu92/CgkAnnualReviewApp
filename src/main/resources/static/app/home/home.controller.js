@@ -10,11 +10,17 @@
     function HomeController($scope, $state, AuthorizationService) {
         $scope.message = 'Home Controller';
 
+        $scope.logout = logout;
+
         init();
 
         function init() {
             //TODO check AuthorizationService
 //            $state.go('loginState');
+        }
+
+        function logout() {
+            AuthorizationService.logout();
         }
 
     }

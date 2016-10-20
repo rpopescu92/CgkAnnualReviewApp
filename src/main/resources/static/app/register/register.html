@@ -7,7 +7,7 @@
                         <div class="col-md-8">
                             <md-input-container class="registerForm">
                                 <label>Username</label>
-                                <input type="text">
+                                <input type="text" ng-model="username">
                             </md-input-container>
                         </div>
                     </div>
@@ -15,7 +15,7 @@
                         <div class="col-md-8">
                             <md-input-container class="registerForm">
                                 <label>Email address</label>
-                                <input type="email">
+                                <input type="email" ng-model="email">
                             </md-input-container>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                         <div class="col-md-8">
                             <md-input-container class="registerForm">
                                 <label>First Name</label>
-                                <input type="text">
+                                <input type="text" ng-model="firstName">
                             </md-input-container>
                         </div>
                     </div>
@@ -31,16 +31,31 @@
                         <div class="col-md-8">
                             <md-input-container class="registerForm">
                                 <label>Last Name</label>
-                                <input type="text">
+                                <input type="text" ng-model="lastName">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <md-input-container class="registerForm">
+                                <label>Birthday</label>
+                                <input type="text" ng-model="birthday">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <md-input-container class="registerForm">
+                                <label>Password</label>
+                                <input type="text" ng-model="password">
                             </md-input-container>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <md-radio-group ng-model="data.group1">
-                                <md-radio-button value="Female" class="md-primary">Female</md-radio-button>
-                                <md-radio-button value="Male"> Male </md-radio-button>
-                            </md-radio-group>
+                            <div class="col-md-4 pull-left">
+                                <md-button ng-click="register()">Register</md-button>
+                            </div>
                         </div>
                     </div>
                 </form>
