@@ -8,6 +8,7 @@ import javax.persistence.*;
  * Created by roxanap on 16.10.2016.
  */
 @Entity
+@Table(name = "Accounts")
 @Builder
 @Getter
 @Setter
