@@ -31,9 +31,4 @@ public class User implements Serializable {
     private Date birthday;
     @JsonIgnore
     private Date createdDate;
-
-//    public static void main(String[] args) {
-//        BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
-//        System.out.println(pe.encode("admin"));
-//    }
 }
