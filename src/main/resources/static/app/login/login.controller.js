@@ -44,6 +44,7 @@
         }
 
         function register() {
+        console.log("register");
             $state.go('register');
         }
 
