@@ -3,6 +3,7 @@ package ro.cegeka.app.domain.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 /**
  * Created by roxanap on 16.10.2016.
@@ -21,6 +22,6 @@ public class BankAccount {
     private String accountNumber;
     @ManyToOne
     private User user;
-    private Long balance;
+    private BigDecimal balance;
 
 }

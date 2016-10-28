@@ -27,6 +27,7 @@ public class User implements Serializable {
     private String userName;
     private String password;
     private Date createdDate;
+    private Date birthday;
 
 //    public static void main(String[] args) {
 //        BCryptPasswordEncoder pe = new BCryptPasswordEncoder();

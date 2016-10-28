@@ -8,7 +8,7 @@ spring:
      database-platform: org.hibernate.dialect.MySQL5Dialect
      hibernate:
           show_sql: true
-          ddl-auto: none
+          ddl-auto: update
 
    jwt:
           secret: blablabl12345blatesteudsad14841221

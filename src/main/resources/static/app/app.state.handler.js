@@ -5,15 +5,14 @@
         .module('bankApp')
         .factory('stateHandler', stateHandler);
 
-    stateHandler.$inject = ['$rootScope', '$state', '$sessionStorage', '$window', 'AuthorizationServiceorizationService', 'Principal', 'VERSION'];
+    stateHandler.$inject = ['$rootScope', '$state', '$sessionStorage', '$window', 'AuthorizationService', 'Principal'];
 
-    function stateHandler($rootScope, $state, $sessionStorage, $window, AuthorizationService, Principal, VERSION) {
+    function stateHandler($rootScope, $state, $sessionStorage, $window, AuthorizationService, Principal) {
         return {
             initialize: initialize
         };
 
         function initialize() {
-            $rootScope.VERSION = VERSION;
 
             var stateChangeStart = $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams, fromState) {
                 $rootScope.toState = toState;
@@ -26,7 +25,7 @@
                 }
 
                 if (Principal.isIdentityResolved()) {
-                    AuthorizationService.AuthorizationServiceorize();
+                    AuthorizationService.authorize();
                 }
 
             });
@@ -34,9 +33,9 @@
             var stateChangeSuccess = $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
                 var titleKey = 'CegekaApp';
 
-                if (toState.data.pageTitle) {
-                    titleKey = toState.data.pageTitle;
-                }
+//                if (toState.data.pageTitle) {
+//                    titleKey = toState.data.pageTitle;
+//                }
                 $window.document.title = titleKey;
             });
 

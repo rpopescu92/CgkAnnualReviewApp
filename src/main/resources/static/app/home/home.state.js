@@ -17,7 +17,13 @@
                            templateUrl: 'app/home/home.html',
                            controller: 'HomeController'
                     }
-                }
+                },
+                        resolve: {
+                             authorize: ['AuthorizationService',
+                             function (AuthorizationService) {
+                                 return AuthorizationService.authorize();
+                             }]
+                        }
             });
        }
 

@@ -17,7 +17,13 @@
                            templateUrl: 'app/login/login.html',
                            controller: 'LoginController'
                     }
-                }
+                },
+                                         resolve: {
+                                              authorize: ['AuthorizationService',
+                                              function (AuthorizationService) {
+                                                  return AuthorizationService.authorize();
+                                              }]
+                                         }
             });
        }
 

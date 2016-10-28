@@ -28,13 +28,20 @@
                     $state.go('home');
                 }
 
+                if(isAuthenticated && $rootScope.toState.name !== 'login') {
+                    $state.go($rootScope.toState.name);
+                }
+
                 if(isAuthenticated && !$rootScope.fromState.name && getPreviousState()) {
                     var previousState = getPreviousState();
                     resetPreviousState();
                     $state.go(previousState.name, previousState.params);
                 }
                 storePreviousState($rootScope.toState.name, $rootScope.toStateParams);
-                $state.go('login');
+
+                if(!isAuthenticated && $rootScope.toState.name !== 'login') {
+                    $state.go('login');
+                }
             }
 
         }

@@ -53,7 +53,7 @@
                    }
 
                  return deferred.promise;
-                    }
+            }
         }
 
 })();

@@ -20,7 +20,6 @@
 
         function login() {
             $scope.authenticationError = false;
-            event.preventDefault();
             AuthorizationService.login({
                 user: $scope.user,
                 password: $scope.password
@@ -28,6 +27,7 @@
                 $scope.authenticationError = false;
 
                 if($state.current.name === 'login') {
+                    console.log('go to home');
                     $state.go('home');
                 }
                 $scope.$broadcast('authenticationSuccess');
@@ -44,7 +44,6 @@
         }
 
         function register() {
-            console.log("register");
             $state.go('register');
         }
 
