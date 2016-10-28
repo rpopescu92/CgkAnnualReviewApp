@@ -1,5 +1,6 @@
 package ro.cegeka.app.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -20,17 +21,16 @@ import java.util.Date;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     private Long id;
     private String firstName;
     private String lastName;
     @Column(unique = true)
     private String userName;
     private String password;
+    @JsonIgnore
     private Date createdDate;
     private Date birthday;
 
-//    public static void main(String[] args) {
-//        BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
-//        System.out.println(pe.encode("admin"));
-//    }
+
 }

@@ -5,12 +5,13 @@
         .module('bankApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$state', 'AuthorizationService'];
+    HomeController.$inject = ['$scope', '$state', 'AuthorizationService','Account'];
 
-    function HomeController($scope, $state, AuthorizationService) {
+    function HomeController($scope, $state, AuthorizationService, Account) {
         $scope.message = 'Home Controller';
 
         $scope.logout = logout;
+        $scope.currentUser = currentUser;
 
         init();
 
@@ -22,6 +23,10 @@
         function logout() {
             AuthorizationService.logout();
             $state.go('login');
+        }
+
+        function currentUser(){
+            return Account.getAccount();
         }
 
     }

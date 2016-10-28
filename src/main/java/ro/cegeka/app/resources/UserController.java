@@ -24,9 +24,4 @@ public class UserController {
         userService.init();
         return userService.getUsers();
     }
-
-    @RequestMapping(value="register",method = RequestMethod.POST)
-    public void register(User user){
-        userService.registerUser(user);
-    }
 }
