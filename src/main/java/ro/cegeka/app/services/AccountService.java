@@ -1,5 +1,6 @@
 package ro.cegeka.app.services;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class AccountService {
 			accountsRepository.save(BankAccount.builder().
 					id(Long.valueOf(i)).
 					accountNumber("100" + i).
-					balance(Long.valueOf(100*i)).
+					balance( new BigDecimal(Long.valueOf(100*i))).
 					build());        
 		}
 	}
@@ -32,7 +33,7 @@ public class AccountService {
 		BankAccount ba = BankAccount.builder().
 				id(Long.valueOf(1)).
 				accountNumber("1234").
-				balance(Long.valueOf(12)).
+				balance( new BigDecimal(Long.valueOf(12))).
 				build();                
 		listAccs.add( ba );
 
