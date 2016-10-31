@@ -21,7 +21,6 @@ public class AccountService {
 			accountsRepository.save(BankAccount.builder().
 					id(Long.valueOf(i)).
 					accountNumber("100" + i).
-					balance( new BigDecimal(Long.valueOf(100*i))).
 					build());        
 		}
 	}
