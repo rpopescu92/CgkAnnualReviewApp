@@ -21,7 +21,7 @@ import java.util.Date;
 @RestController
 @RequestMapping("/register")
 @Slf4j
-public class RegisterController {
+public class RegisterResource {
 
     public static final int SQL_DUPLICATE_USERNAME = 1062;
 

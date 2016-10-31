@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64d22deb-04d3-44d6-8c53-aab6bad2bc2d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/services/AccountService.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/services/AccountService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/app/home/home.controller.js" afterPath="$PROJECT_DIR$/src/main/resources/static/app/home/home.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/app/home/home.html" afterPath="$PROJECT_DIR$/src/main/resources/static/app/home/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" />
+      <change type="MOVED" beforePath="D:\cegekaApp\CgkAnnualReviewApp\src\main\java\ro\cegeka\app\resources\RegisterController.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/resources/RegisterResource.java" />
+      <change type="MOVED" beforePath="D:\cegekaApp\CgkAnnualReviewApp\src\main\java\ro\cegeka\app\resources\UserController.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/resources/UserResource.java" />
     </list>
     <ignored path="CgkAnnualReviewApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -969,7 +967,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ro/cegeka/app/resources/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ro/cegeka/app/resources/UserResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
