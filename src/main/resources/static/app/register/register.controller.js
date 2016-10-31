@@ -4,9 +4,9 @@
     angular.module('bankApp')
             .controller('RegisterController', RegisterController);
 
-    RegisterController.$inject = ['AuthorizationService','$scope', 'RegisterService'];
+    RegisterController.$inject = ['AuthorizationService','$scope', 'RegisterService', '$mdDialog'];
 
-    function RegisterController(AuthorizationService, $scope, RegisterService) {
+    function RegisterController(AuthorizationService, $scope, RegisterService, $mdDialog) {
            $scope.register = register;
            $scope.username = null;
            $scope.lastName= null;
@@ -14,6 +14,7 @@
            $scope.birthday = null;
            $scope.password = null;
            $scope.showDuplicateUserErrorMessage = false;
+           $scope.closeDialog = closeDialog;
 
            function register() {
                 $scope.showDuplicateUserErrorMessage = false;
@@ -34,6 +35,10 @@
                             $scope.showDuplicateUserErrorMessage = true;
                         }
                     });
+           }
+
+           function closeDialog() {
+                $mdDialog.hide();
            }
     }
 })();

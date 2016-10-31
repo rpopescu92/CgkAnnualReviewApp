@@ -5,15 +5,15 @@
         .controller('LoginController', LoginController);
 
 
-    LoginController.$inject = ['$scope', 'AuthorizationService', '$state'];
+    LoginController.$inject = ['$scope', 'AuthorizationService', '$state', '$mdDialog'];
 
-    //TODO use AuthorizationService
-    function LoginController($scope, AuthorizationService,$state){
+    function LoginController($scope, AuthorizationService,$state, $mdDialog) {
         var vm = this;
 
         $scope.user = null;
         $scope.password = null;
         $scope.login = login;
+        $scope.register = register;
         $scope.register = register;
 
         $scope.authenticationError = false;
@@ -44,8 +44,10 @@
         }
 
         function register() {
-        console.log("register");
-            $state.go('register');
+            $mdDialog.show({
+                templateUrl: '/app/register/register.html',
+                controller: 'RegisterController'
+            });
         }
 
     }

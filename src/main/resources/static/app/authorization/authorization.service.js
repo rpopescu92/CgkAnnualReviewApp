@@ -24,7 +24,7 @@
             function authThen() {
                 var isAuthenticated = Principal.isAuthenticated();
 
-                if(isAuthenticated && ($rootScope.toState.name === 'login' || $rootScope.toState.name === 'register')) {
+                if(isAuthenticated && ($rootScope.toState.name === 'login')) {
                     $state.go('home');
                 }
 
