@@ -8,9 +8,6 @@
     HomeController.$inject = ['$scope', '$state', 'AuthorizationService','Account', 'Principal'];
 
     function HomeController($scope, $state, AuthorizationService, Account, Principal) {
-        $scope.message = 'Home Controller';
-
-        $scope.logout = logout;
         $scope.currentUser = currentUser;
         $scope.account = null;
 
@@ -19,11 +16,6 @@
         function init() {
             //TODO check AuthorizationService
 //            $state.go('loginState');
-        }
-
-        function logout() {
-            AuthorizationService.logout();
-            $state.go('login');
         }
 
         function currentUser(){

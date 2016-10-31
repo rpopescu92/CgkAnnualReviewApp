@@ -4,9 +4,27 @@
     angular.module('bankApp')
             .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$scope'];
+    NavbarController.$inject = ['$scope', '$state', 'AuthorizationService', 'Principal'];
 
-    function NavbarController($scope){
-        $scope.message = "This is a navbar";
+    function NavbarController($scope, $state, AuthorizationService, Principal) {
+        var vm = this;
+
+        $scope.logout = logout;
+        $scope.isAuthenticated = false;
+
+        vm.init = init;
+
+        init();
+
+        function init() {
+            $scope.isAuthenticated = Principal.isAuthenticated();
+        }
+
+        function logout() {
+            AuthorizationService.logout();
+            $state.go('login');
+        }
     }
+
+
 })();
