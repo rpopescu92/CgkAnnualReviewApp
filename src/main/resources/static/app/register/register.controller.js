@@ -27,8 +27,8 @@
                 };
                 RegisterService.register(data)
                     .then(function (response) {
-                        if(data.status == 200) {
-                            //success
+                        if(response.status == 200) {
+                            $mdDialog.hide();
                         }
                     }, function (error) {
                         if(error.status == 400) {
