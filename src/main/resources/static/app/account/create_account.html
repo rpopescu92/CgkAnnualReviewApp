@@ -1,0 +1,27 @@
+<md-dialog style="width:500px;">
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div class="col-md-12">
+                <md-card-content>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <md-input-container class="registerForm">
+                                    <label>Currency</label>
+                                    <md-select ng-model="currency">
+                                            <md-option ng-value="currency" ng-repeat="currency in currencies ">{{currency}}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                        </div>
+
+                    </form>
+                </md-card-content>
+            </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="createNewAccount()">Create</md-button>
+        <md-button ng-click="closeDialog()">Close</md-button>
+    </md-dialog-actions>
+</md-dialog>

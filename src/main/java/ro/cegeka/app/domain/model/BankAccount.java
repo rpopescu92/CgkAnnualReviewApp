@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Created by roxanap on 16.10.2016.
@@ -24,5 +25,6 @@ public class BankAccount {
     @ManyToOne
     private User user;
     private BigDecimal balance;
-
+    private Currency currency;
+    private Date createDate;
 }

@@ -5,11 +5,12 @@
         .module('bankApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$state', 'AuthorizationService','Account', 'Principal'];
+    HomeController.$inject = ['$scope', '$state', 'AuthorizationService','Account', 'Principal', '$mdDialog'];
 
-    function HomeController($scope, $state, AuthorizationService, Account, Principal) {
+    function HomeController($scope, $state, AuthorizationService, Account, Principal, $mdDialog) {
         $scope.currentUser = currentUser;
         $scope.account = null;
+        $scope.createNewAccount = createNewAccount;
 
         init();
 
@@ -31,6 +32,12 @@
          function seeAllBalance() {
 
           }
+         function createNewAccount(){
+            $mdDialog.show({
+                     templateUrl: '/app/account/create_account.html',
+                     controller: 'ManageAccountController'
+                            });
+         }
 
     }
 

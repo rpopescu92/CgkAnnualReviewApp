@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-import ro.cegeka.app.domain.repository.AccountsRepository;
+import ro.cegeka.app.domain.repository.BankAccountsRepository;
 import ro.cegeka.app.domain.repository.UserRepository;
 
 @Component
@@ -14,7 +14,7 @@ public class Provisioning {
     private UserRepository userRepository;
     
     @Inject
-    private AccountsRepository accountsRepository;
+    private BankAccountsRepository bankAccountsRepository;
 
  /**@PostConstruct
   public void init() {
