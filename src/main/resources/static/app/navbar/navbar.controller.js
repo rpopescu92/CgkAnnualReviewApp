@@ -4,9 +4,9 @@
     angular.module('bankApp')
             .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$scope', '$state', 'AuthorizationService', 'Principal'];
+    NavbarController.$inject = ['$scope','$rootScope',  '$state', 'AuthorizationService', 'Principal'];
 
-    function NavbarController($scope, $state, AuthorizationService, Principal) {
+    function NavbarController($scope, $rootScope, $state, AuthorizationService, Principal) {
         var vm = this;
 
         $scope.logout = logout;
@@ -16,12 +16,17 @@
 
         init();
 
+        $rootScope.$on('authenticationSuccess', function(event, data) {
+            $scope.isAuthenticated = true;
+        });
+
         function init() {
             $scope.isAuthenticated = Principal.isAuthenticated();
         }
 
         function logout() {
             AuthorizationService.logout();
+            $scope.isAuthenticated = false;
             $state.go('login');
         }
     }

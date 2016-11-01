@@ -30,7 +30,7 @@
                     console.log('go to home');
                     $state.go('home');
                 }
-                $scope.$broadcast('authenticationSuccess');
+                $scope.$emit('authenticationSuccess');
 
                 if(AuthorizationService.getPreviousState()) {
                     var previousState = AuthorizationService.getPreviousState();
