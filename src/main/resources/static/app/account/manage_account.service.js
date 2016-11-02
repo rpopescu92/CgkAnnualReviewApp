@@ -8,7 +8,8 @@
      ManageAccountService.$inject = ['$http'];
      function ManageAccountService($http) {
             return {
-                createNewAccount: createNewAccount
+                createNewAccount: createNewAccount,
+                getAccounts: getAccounts
             }
 
 
@@ -17,6 +18,14 @@
                       url:'api/accounts',
                       data: data,
                       method: 'POST'
+                });
+            }
+
+            function getAccounts(data) {
+                return $http({
+                    url:'api/accounts',
+                    data: data,
+                    method: 'GET'
                 });
             }
      }

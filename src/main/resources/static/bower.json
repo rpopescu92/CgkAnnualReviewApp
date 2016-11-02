@@ -6,12 +6,12 @@
     "angular": "1.5.2",
     "angular-material": "latest",
     "bootstrap": "3.3.7",
-    "ngstorage":"0.3.10",
+    "ngstorage": "0.3.10",
     "angular-ui-router": "latest",
     "angular-animate": "latest",
     "angular-aria": "latest",
     "angular-cache-buster": "0.4.3",
-    "angular-material-data-table": "latest"
+    "angular-material-data-table": "^0.10.9"
   },
   "resolutions": {
     "angular": "~1.5.5"

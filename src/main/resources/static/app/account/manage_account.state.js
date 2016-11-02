@@ -16,7 +16,13 @@
                             templateUrl: 'app/account/manage_account.html',
                             controller: 'ManageAccountController'
                        }
-                }
+                },
+                resolve: {
+                           authorize: ['AuthorizationService',
+                           function (AuthorizationService) {
+                           return AuthorizationService.authorize();
+                     }]
+                  }
         });
     }
 })();

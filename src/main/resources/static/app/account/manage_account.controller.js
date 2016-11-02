@@ -4,12 +4,14 @@
     angular.module('bankApp')
             .controller('ManageAccountController', ManageAccountController);
 
-     ManageAccountController.$inject = ['$scope', '$state', '$mdDialog', 'ManageAccountService']
+     ManageAccountController.$inject = ['$scope', '$state', '$mdDialog', 'ManageAccountService'];
      function ManageAccountController($scope, $state, $mdDialog, ManageAccountService) {
         $scope.currencies = ['RON', 'EUR', 'GBP'];
         $scope.accountTypes = ['CURRENT', 'SAVINGS', 'DEPOSIT'];
         $scope.closeDialog = closeDialog;
         $scope.createNewAccount = createNewAccount;
+
+        $scope.bankAccounts = null
 
         $scope.initialAmount = null;
         $scope.currency = null;
@@ -40,6 +42,22 @@
                       }
              });
         }
+
+        function getBankAccounts() {
+
+            ManageAccountService.getAccounts()
+                .then(function(response){
+                    if(response.status == 200){
+
+                    }
+                },
+                function(error){
+                    if(error.status == 400){
+
+                    }
+                });
+
+        };
 
      }
 

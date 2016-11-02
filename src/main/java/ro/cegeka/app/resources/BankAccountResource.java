@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ro.cegeka.app.domain.model.BankAccount;
+import ro.cegeka.app.domain.model.User;
 import ro.cegeka.app.domain.repository.BankAccountsRepository;
 import ro.cegeka.app.dto.BankAccountDTO;
 import ro.cegeka.app.services.BankAccountService;
@@ -32,8 +33,15 @@ public class BankAccountResource {
     private UserService userService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-    public List<BankAccount> getBankAccountsByUser() {
-        return bankAccountService.getAccountsByUser("");
+    public ResponseEntity<BankAccount> getBankAccountsByUser() {
+        User user = userService.getAuthenticatedUser();
+        List<BankAccount> bankAccounts = bankAccountService.getBankAccountsByUser(user);
+        if(bankAccounts.isEmpty()){
+           return new ResponseEntity<BankAccount>(HttpStatus.NOT_FOUND);
+        }
+        else {
+           return new ResponseEntity<BankAccount>(HttpStatus.OK);
+        }
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

@@ -11,6 +11,7 @@
         $scope.currentUser = currentUser;
         $scope.account = null;
         $scope.createNewAccount = createNewAccount;
+        $scope.seeAllAccounts = seeAllAccounts;
 
         init();
 
@@ -40,7 +41,7 @@
          }
 
          function seeAllAccounts() {
-
+              $state.go("/bank_account");
          }
 
     }

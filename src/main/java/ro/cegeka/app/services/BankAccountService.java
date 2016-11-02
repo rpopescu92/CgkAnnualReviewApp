@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ro.cegeka.app.domain.model.BankAccount;
+import ro.cegeka.app.domain.model.User;
 import ro.cegeka.app.domain.repository.BankAccountsRepository;
 
 @Service
@@ -41,5 +42,9 @@ public class BankAccountService {
 
 	public void saveAccount(BankAccount bankAccount){
 		bankAccountsRepository.save(bankAccount);
+	}
+
+	public List<BankAccount> getBankAccountsByUser(User user) {
+		return bankAccountsRepository.findByUser(user);
 	}
 }
