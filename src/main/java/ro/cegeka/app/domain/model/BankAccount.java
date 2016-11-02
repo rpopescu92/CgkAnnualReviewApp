@@ -28,4 +28,5 @@ public class BankAccount {
     private BigDecimal intialAmount;
     private Currency currency;
     private Date createDate;
+    private AccountType accountType;
 }

@@ -1,6 +1,7 @@
 package ro.cegeka.app.dto;
 
 import lombok.*;
+import ro.cegeka.app.domain.model.AccountType;
 import ro.cegeka.app.domain.model.Currency;
 import ro.cegeka.app.domain.model.User;
 
@@ -23,4 +24,5 @@ public class BankAccountDTO {
     private BigDecimal balance;
     private BigDecimal initialAmount;
     private Currency currency;
+    private AccountType accountType;
 }

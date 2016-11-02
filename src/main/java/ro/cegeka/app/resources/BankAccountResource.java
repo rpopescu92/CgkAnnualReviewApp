@@ -47,6 +47,7 @@ public class BankAccountResource {
                                         .currency(bankAccountDto.getCurrency())
                                         .user(userService.getAuthenticatedUser())
                                         .createDate(new Date())
+                                        .accountType(bankAccountDto.getAccountType())
                                         .build();
             System.out.println(bankAccount.getAccountNumber());
             bankAccountService.saveAccount(bankAccount);

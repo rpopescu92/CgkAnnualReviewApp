@@ -7,11 +7,13 @@
      ManageAccountController.$inject = ['$scope', '$state', '$mdDialog', 'ManageAccountService']
      function ManageAccountController($scope, $state, $mdDialog, ManageAccountService) {
         $scope.currencies = ['RON', 'EUR', 'GBP'];
+        $scope.accountTypes = ['CURRENT', 'SAVINGS', 'DEPOSIT'];
         $scope.closeDialog = closeDialog;
         $scope.createNewAccount = createNewAccount;
 
         $scope.initialAmount = null;
         $scope.currency = null;
+        $scope.accountType = null;
         $scope.createAccountErrorMessage = null;
 
 
@@ -22,7 +24,8 @@
         function createNewAccount() {
             var data = {
                   initialAmount: $scope.initialAmount,
-                  currency: $scope.currency
+                  currency: $scope.currency,
+                  accountType: $scope.accountType
 
             };
             ManageAccountService.createNewAccount(data)
