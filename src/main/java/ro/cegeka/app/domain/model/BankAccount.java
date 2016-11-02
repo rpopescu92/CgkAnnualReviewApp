@@ -25,6 +25,7 @@ public class BankAccount {
     @ManyToOne
     private User user;
     private BigDecimal balance;
+    private BigDecimal intialAmount;
     private Currency currency;
     private Date createDate;
 }

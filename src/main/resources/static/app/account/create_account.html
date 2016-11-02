@@ -9,8 +9,16 @@
                                 <md-input-container class="registerForm">
                                     <label>Currency</label>
                                     <md-select ng-model="currency">
-                                            <md-option ng-value="currency" ng-repeat="currency in currencies ">{{currency}}</md-option>
+                                            <md-option ng-value="currency" ng-repeat="currency in currencies " ng-model="currency">{{currency}}</md-option>
                                     </md-select>
+                                </md-input-container>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <md-input-container class="registerForm">
+                                    <label>Initial amount</label>
+                                    <input type="text" ng-model="initialAmount">
                                 </md-input-container>
                             </div>
                         </div>

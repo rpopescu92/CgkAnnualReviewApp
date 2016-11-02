@@ -2,8 +2,11 @@ package ro.cegeka.app.resources;
 
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
+import org.iban4j.CountryCode;
+import org.iban4j.Iban;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,7 +23,7 @@ import ro.cegeka.app.services.BankAccountService;
 import ro.cegeka.app.services.UserService;
 
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("api/accounts")
 public class BankAccountResource {
 	
 	@Autowired
@@ -33,14 +36,19 @@ public class BankAccountResource {
         return bankAccountService.getAccountsByUser("");
     }
 
-    @RequestMapping(value = "/account", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<BankAccount> saveBankAccount(@RequestBody BankAccountDTO bankAccountDto){
         try{
-            BankAccount bankAccount = BankAccount.builder().accountNumber(bankAccountDto.getAccountNumber())
-                                        .balance(BigDecimal.ZERO)
+            Iban iban = Iban.random(CountryCode.RO);
+
+            BankAccount bankAccount = BankAccount.builder().accountNumber(iban.getAccountNumber())
+                                        .balance(bankAccountDto.getInitialAmount())
+                                        .intialAmount(bankAccountDto.getInitialAmount())
                                         .currency(bankAccountDto.getCurrency())
                                         .user(userService.getAuthenticatedUser())
+                                        .createDate(new Date())
                                         .build();
+            System.out.println(bankAccount.getAccountNumber());
             bankAccountService.saveAccount(bankAccount);
             return new ResponseEntity<BankAccount>(HttpStatus.OK);
         }catch (Exception ex){

@@ -1,8 +1,6 @@
 package ro.cegeka.app.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import ro.cegeka.app.domain.model.Currency;
 import ro.cegeka.app.domain.model.User;
 
@@ -18,9 +16,11 @@ import java.math.BigDecimal;
 @Builder
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class BankAccountDTO {
 
-    private String accountNumber;
     private BigDecimal balance;
+    private BigDecimal initialAmount;
     private Currency currency;
 }

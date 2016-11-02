@@ -32,11 +32,15 @@
          function seeAllBalance() {
 
           }
-         function createNewAccount(){
+         function createNewAccount() {
             $mdDialog.show({
                      templateUrl: '/app/account/create_account.html',
                      controller: 'ManageAccountController'
                             });
+         }
+
+         function seeAllAccounts() {
+
          }
 
     }
