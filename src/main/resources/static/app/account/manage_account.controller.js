@@ -4,12 +4,11 @@
     angular.module('bankApp')
             .controller('ManageAccountController', ManageAccountController);
 
-     ManageAccountController.$inject = ['$scope', '$state', '$mdDialog', 'ManageAccountService'];
-     function ManageAccountController($scope, $state, $mdDialog, ManageAccountService) {
-        $scope.currencies = ['RON', 'EUR', 'GBP'];
-        $scope.accountTypes = ['CURRENT', 'SAVINGS', 'DEPOSIT'];
+     ManageAccountController.$inject = ['$scope', '$state','$rootScope', '$mdDialog', 'ManageAccountService'];
+     function ManageAccountController($scope, $state,$rootScope, $mdDialog, ManageAccountService) {
+
+        var vm = this;
         $scope.closeDialog = closeDialog;
-        $scope.createNewAccount = createNewAccount;
 
         $scope.bankAccounts = null
 
@@ -19,43 +18,39 @@
         $scope.createAccountErrorMessage = null;
         $scope.selected = [];
 
-         $scope.query = {
-            order: 'accountType',
-            limit: 7,
-            page: 1
-          };
+        $scope.getBankAccounts = getBankAccounts;
+        $scope.reorder = reorder;
 
+
+        $scope.query = {
+            order: 'accountNumber',
+            limit: 5,
+            page: 1
+        };
+
+        getBankAccounts($scope.query.page);
 
         function closeDialog()  {
             $mdDialog.hide();
         }
 
-        function createNewAccount() {
-            var data = {
-                  initialAmount: $scope.initialAmount,
-                  currency: $scope.currency,
-                  accountType: $scope.accountType
-
-            };
-            ManageAccountService.createNewAccount(data)
-                    .then(function(response){
-                        if(response.status == 200){
-                            $mdDialog.hide();
-                        }
-                    },
-                     function(error){
-                        if(error.status == 400) {
-                            $scope.createAccountErrorMessage = "Cannot save current account data";
-                      }
-             });
+        function reorder(data) {
+            $scope.query.order = data;
+            getBankAccounts();
         }
 
-        function getBankAccounts() {
+        $rootScope.$on('load-bank-accounts', function(event,data) {
+            vm.getBankAccounts();
+        });
 
-            ManageAccountService.getAccounts()
+        function getBankAccounts(page) {
+            $scope.query.page = page;
+            ManageAccountService.getAccounts($scope.query)
                 .then(function(response){
+                    console.log(response);
                     if(response.status == 200){
-                        $scope.bankAccounts = response.data;
+                        $scope.bankAccounts = response.data.content;
+                        $scope.total = response.data.totalElements;
                     }
                 },
                 function(error){
@@ -67,6 +62,4 @@
         };
 
      }
-
-
 })();

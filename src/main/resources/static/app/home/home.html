@@ -5,37 +5,40 @@
         <div class="col-md-12">
             <md-content class="md-padding col-md-6">
 
-                    <md-card>
-                        <md-card-title>
-                            Balance
-                            <md-card-title-text>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <md-card-content>
+                <md-card>
+                    <md-card-title>
+                        Balance
+                        <md-card-title-text>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
 
-                        </md-card-content>
-                        <md-card-actions layout="row" layout-align="end center">
-                            <md-button ng-click="seeAllBalance()">See all accounts balance</md-button>
-                        </md-card-actions>
-                    </md-card>
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="seeAllBalance()">See all accounts balance</md-button>
+                    </md-card-actions>
+                </md-card>
 
-                </md-content>
+            </md-content>
             <md-content class="md-padding col-md-6">
 
-                    <md-card>
-                        <md-card-title>
-                            Manage accounts
-                            <md-card-title-text>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <md-card-content>
-
-                        </md-card-content>
-                        <md-card-actions layout="row" layout-align="end center">
-                            <md-button ng-click="createNewAccount()">Create new account </md-button>
-                            <md-button ng-click="seeAllAccounts()">See all accounts</md-button>
-                        </md-card-actions>
-                    </md-card>
+                <md-card>
+                    <md-card-title>
+                        Manage accounts
+                        <md-card-title-text>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div ng-include="'app/account/manage_account.html'"></div>
+                            </div>
+                        </div>
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="createNewAccount()">Create new account</md-button>
+                    </md-card-actions>
+                </md-card>
 
             </md-content>
         </div>

@@ -11,7 +11,6 @@
         $scope.currentUser = currentUser;
         $scope.account = null;
         $scope.createNewAccount = createNewAccount;
-        $scope.seeAllAccounts = seeAllAccounts;
 
         init();
 
@@ -30,18 +29,12 @@
                     });
           }
 
-         function seeAllBalance() {
 
-          }
          function createNewAccount() {
             $mdDialog.show({
                      templateUrl: '/app/account/create_account.html',
-                     controller: 'ManageAccountController'
+                     controller: 'AccountController'
                             });
-         }
-
-         function seeAllAccounts() {
-              $state.go("bank_account");
          }
 
     }

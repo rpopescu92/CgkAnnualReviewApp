@@ -21,10 +21,9 @@
                 });
             }
 
-            function getAccounts(data) {
+            function getAccounts(options) {
                 return $http({
-                    url:'api/bank-accounts',
-                    data: data,
+                    url:'api/bank-accounts?page='+options.page+'&limit='+options.limit+'&order='+options.order,
                     method: 'GET'
                 });
             }

@@ -3,6 +3,9 @@ package ro.cegeka.app.services;
 import org.iban4j.CountryCode;
 import org.iban4j.Iban;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ro.cegeka.app.domain.model.BankAccount;
 import ro.cegeka.app.domain.model.User;
@@ -10,7 +13,6 @@ import ro.cegeka.app.domain.repository.BankAccountsRepository;
 import ro.cegeka.app.dto.BankAccountDTO;
 
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class BankAccountService {
@@ -21,9 +23,15 @@ public class BankAccountService {
     @Autowired
     private UserService userService;
 
-    public List<BankAccount> getBankAccountsByUser() {
+    public Page<BankAccount> getBankAccountsByUser(Integer page, Integer limit, String option) {
         User user = userService.getAuthenticatedUser();
-        return bankAccountsRepository.findByUser(user);
+        Sort.Direction direction = option.startsWith("-") ? Sort.Direction.DESC : Sort.Direction.ASC;
+        if (option.startsWith("+")) {
+            option = option.substring(option.indexOf('+') + 1);
+        } else {
+            option = option.substring(option.indexOf('-') + 1);
+        }
+        return bankAccountsRepository.findByUser(user, new PageRequest(page-1, limit, direction, option));
     }
 
     public void saveBankAccount(BankAccountDTO bankAccountDto) {
@@ -31,10 +39,10 @@ public class BankAccountService {
 
         BankAccount bankAccount = BankAccount.builder().accountNumber(iban.getAccountNumber())
                 .balance(bankAccountDto.getInitialAmount())
-                .intialAmount(bankAccountDto.getInitialAmount())
+                .initialAmount(bankAccountDto.getInitialAmount())
                 .currency(bankAccountDto.getCurrency())
                 .user(userService.getAuthenticatedUser())
-                .createDate(new Date())
+                .createdDate(new Date())
                 .accountType(bankAccountDto.getAccountType())
                 .build();
         bankAccountsRepository.save(bankAccount);
