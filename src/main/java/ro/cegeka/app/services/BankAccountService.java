@@ -13,6 +13,8 @@ import ro.cegeka.app.domain.repository.BankAccountsRepository;
 import ro.cegeka.app.dto.BankAccountDTO;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BankAccountService {
@@ -51,5 +53,10 @@ public class BankAccountService {
 
     public void deleteAccount(Long id) {
         bankAccountsRepository.delete(id);
+    }
+
+    public List<BankAccount> getBankAccountNamesByUser() {
+        User user = userService.getAuthenticatedUser();
+        return bankAccountsRepository.findByUser(user);
     }
 }

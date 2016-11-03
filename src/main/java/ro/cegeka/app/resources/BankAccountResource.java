@@ -12,6 +12,8 @@ import ro.cegeka.app.dto.BankAccountDTO;
 import ro.cegeka.app.services.BankAccountService;
 import ro.cegeka.app.services.UserService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/bank-accounts")
 public class BankAccountResource {
@@ -27,6 +29,11 @@ public class BankAccountResource {
                                                                    @RequestParam("limit") Integer limit,
                                                                    @RequestParam("order") String order) {
         return new ResponseEntity<>(bankAccountService.getBankAccountsByUser(page, limit, order), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/names", method = RequestMethod.GET)
+    public ResponseEntity<List<BankAccount>> getBankAccountNames() {
+        return new ResponseEntity<>(bankAccountService.getBankAccountNamesByUser(), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

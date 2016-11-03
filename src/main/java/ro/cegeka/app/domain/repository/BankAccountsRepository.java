@@ -12,4 +12,6 @@ public interface BankAccountsRepository extends JpaRepository<BankAccount, Long>
 
     Page<BankAccount> findByUser(User user, Pageable pageable);
 
+    List<BankAccount> findByUser(User user);
+
 }

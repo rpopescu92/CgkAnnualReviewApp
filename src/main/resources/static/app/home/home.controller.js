@@ -11,12 +11,13 @@
         $scope.currentUser = currentUser;
         $scope.account = null;
         $scope.createNewAccount = createNewAccount;
+        $scope.createTransaction = createTransaction
 
-        init();
-
-        function init() {
-            //TODO check AuthorizationService
-//            $state.go('loginState');
+        function createTransaction() {
+            $mdDialog.show({
+                     templateUrl: '/app/transactions/create_transaction.html',
+                     controller: 'CreateTransactionController'
+                            });
         }
 
         function currentUser(){
