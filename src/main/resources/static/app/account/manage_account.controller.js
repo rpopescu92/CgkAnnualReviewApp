@@ -36,7 +36,7 @@
 
         function reorder(data) {
             $scope.query.order = data;
-            getBankAccounts();
+            getBankAccounts($scope.query.page);
         }
 
         $rootScope.$on('load-bank-accounts', function(event,data) {

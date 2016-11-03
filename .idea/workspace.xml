@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64d22deb-04d3-44d6-8c53-aab6bad2bc2d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/app/account/account.controller.js" />
-      <change type="DELETED" beforePath="D:\cegekaApp\CgkAnnualReviewApp\src\main\resources\static\app\account\manage_account.state.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/domain/model/BankAccount.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/domain/model/BankAccount.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/resources/BankAccountResource.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/resources/BankAccountResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/services/BankAccountService.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/services/BankAccountService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/domain/repository/BankAccountsRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/domain/repository/BankAccountsRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/domain/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cegeka/app/domain/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/app/app.module.js" afterPath="$PROJECT_DIR$/src/main/resources/static/app/app.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/app/account/create_account.html" afterPath="$PROJECT_DIR$/src/main/resources/static/app/account/create_account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/app/home/home.controller.js" afterPath="$PROJECT_DIR$/src/main/resources/static/app/home/home.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/app/home/home.html" afterPath="$PROJECT_DIR$/src/main/resources/static/app/home/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/app/account/manage_account.controller.js" afterPath="$PROJECT_DIR$/src/main/resources/static/app/account/manage_account.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/app/account/manage_account.html" afterPath="$PROJECT_DIR$/src/main/resources/static/app/account/manage_account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/app/account/manage_account.service.js" afterPath="$PROJECT_DIR$/src/main/resources/static/app/account/manage_account.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/package.json" afterPath="$PROJECT_DIR$/src/main/resources/static/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CgkAnnualReviewApp.iws" />
@@ -44,7 +29,7 @@
       <file leaf-file-name="manage_account.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/app/account/manage_account.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.461538">
+            <state vertical-scroll-proportion="-18.153847">
               <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
               <folding />
             </state>
@@ -76,8 +61,8 @@
       <file leaf-file-name="manage_account.controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/app/account/manage_account.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8006932">
-              <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.56499135">
+              <caret line="38" column="45" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -1202,7 +1187,13 @@
       <option name="project" value="LOCAL" />
       <updated>1477932471440</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- create and visualise bank accounts">
+      <created>1478183277348</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1478183277348</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1255,7 +1246,8 @@
     <MESSAGE value="- fixed build" />
     <MESSAGE value="- changed register with modal dialog" />
     <MESSAGE value="state bank accounts resolved" />
-    <option name="LAST_COMMIT_MESSAGE" value="state bank accounts resolved" />
+    <MESSAGE value="- create and visualise bank accounts" />
+    <option name="LAST_COMMIT_MESSAGE" value="- create and visualise bank accounts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1672,7 +1664,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/app/account/manage_account.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.461538">
+        <state vertical-scroll-proportion="-18.153847">
           <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
           <folding />
         </state>
@@ -1680,8 +1672,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/app/account/manage_account.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8006932">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.56499135">
+          <caret line="38" column="45" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
           <folding />
         </state>
       </provider>
