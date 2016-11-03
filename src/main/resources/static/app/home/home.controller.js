@@ -41,7 +41,7 @@
          }
 
          function seeAllAccounts() {
-              $state.go("/bank_account");
+              $state.go("bank_account");
          }
 
     }
