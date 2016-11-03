@@ -12,6 +12,7 @@ import ro.cegeka.app.domain.model.User;
 import ro.cegeka.app.domain.repository.BankAccountsRepository;
 import ro.cegeka.app.dto.BankAccountDTO;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Service
@@ -36,13 +37,15 @@ public class BankAccountService {
 
     public void saveBankAccount(BankAccountDTO bankAccountDto) {
         Iban iban = Iban.random(CountryCode.RO);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String date = dateFormat.format(new Date());
 
         BankAccount bankAccount = BankAccount.builder().accountNumber(iban.getAccountNumber())
                 .balance(bankAccountDto.getInitialAmount())
                 .initialAmount(bankAccountDto.getInitialAmount())
                 .currency(bankAccountDto.getCurrency())
                 .user(userService.getAuthenticatedUser())
-                .createdDate(new Date())
+                .createdDate(date)
                 .accountType(bankAccountDto.getAccountType())
                 .build();
         bankAccountsRepository.save(bankAccount);
