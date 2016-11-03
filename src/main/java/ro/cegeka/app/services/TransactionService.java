@@ -12,6 +12,7 @@ import ro.cegeka.app.dto.TransactionDTO;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -49,6 +50,13 @@ public class TransactionService {
 
     public List<Transaction> getLastTransactions(){
         return transactionRepository.getLastTransactions(userService.getAuthenticatedUser().getId(), new PageRequest(0,6));
+    }
+
+    //TODO
+    public List<BigDecimal> getAmountForCurrentMonth() {
+        String currentMonthDate = ZonedDateTime.now().getMonthValue() + "/" + ZonedDateTime.now().getYear();
+        List<Transaction> transactions = transactionRepository.findByDateStringLike(currentMonthDate);
+        return null;
     }
 
     private BankAccount updateBalance(TransactionDTO transactionDTO) {
