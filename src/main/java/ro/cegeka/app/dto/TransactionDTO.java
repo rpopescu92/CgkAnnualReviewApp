@@ -16,6 +16,6 @@ import java.math.BigDecimal;
 public class TransactionDTO {
 
     private BigDecimal amount;
-    private BankAccount sendAccount;
-    private BankAccount destinationAccount;
+    private String sendAccount;
+    private String destinationAccount;
 }

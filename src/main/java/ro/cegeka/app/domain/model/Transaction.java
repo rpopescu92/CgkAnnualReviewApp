@@ -28,8 +28,8 @@ public class Transaction {
 
     @ManyToOne
     private BankAccount sendAccount;
-    @ManyToOne
-    private BankAccount destinationAccount;
+
+    private String destinationAccount;
 
     private String date;
 }

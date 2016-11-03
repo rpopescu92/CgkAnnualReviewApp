@@ -8,8 +8,8 @@
                             <div class="col-md-12">
                                 <md-input-container class="registerForm">
                                     <label>Your Account</label>
-                                    <md-select ng-model="currency">
-                                        <md-option ng-value="account" ng-repeat="account in accounts"
+                                    <md-select ng-model="transaction.sendAccount">
+                                        <md-option ng-value="account.accountNumber" ng-repeat="account in accounts"
                                                    ng-model="transaction.sendAccount">{{account.accountNumber}}
                                         </md-option>
                                     </md-select>
@@ -29,7 +29,7 @@
                             <div class="col-md-12">
                                 <md-input-container class="registerForm">
                                     <label>Send amount</label>
-                                    <input type="text" ng-model="transaction.sendAmount">
+                                    <input type="text" ng-model="transaction.amount">
                                 </md-input-container>
                             </div>
                         </div>
@@ -37,11 +37,8 @@
                             <div class="col-md-12">
                                 <md-input-container class="registerForm">
                                     <label>Destination Account</label>
-                                    <md-select ng-model="currency">
-                                        <md-option ng-value="account" ng-repeat="account in accounts"
-                                               ng-model="transaction.destinationAccount">{{account.accountNumber}}
-                                        </md-option>
-                                    </md-select>
+                                    <input type="text" ng-model="transaction.destinationAccount">
+
                                 </md-input-container>
                             </div>
                         </div>

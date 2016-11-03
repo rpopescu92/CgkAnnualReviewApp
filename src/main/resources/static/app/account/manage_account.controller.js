@@ -43,7 +43,7 @@
         }
 
         $rootScope.$on('load-bank-accounts', function(event,data) {
-            vm.getBankAccounts();
+            $scope.getBankAccounts();
         });
 
         function getBankAccounts(page) {

@@ -5,9 +5,9 @@
         .module('bankApp')
         .controller('CreateTransactionController', CreateTransactionController);
 
-    CreateTransactionController.$inject = ['$scope', 'TransactionsService', '$mdDialog', 'ManageAccountService'];
+    CreateTransactionController.$inject = ['$scope', 'TransactionsService', '$mdDialog', 'ManageAccountService', '$rootScope'];
 
-    function CreateTransactionController($scope, TransactionsService, $mdDialog, ManageAccountService) {
+    function CreateTransactionController($scope, TransactionsService, $mdDialog, ManageAccountService,$rootScope) {
         $scope.transaction = {};
         $scope.send = send;
         $scope.hide = hide;
@@ -36,8 +36,16 @@
         function send() {
             console.log($scope.transaction);
             TransactionsService.createTransaction($scope.transaction)
-                .then(function (data) {
-
+                .then(function (response) {
+                    if(response.status == 200){
+                           //$rootScope.$emit('load-transactions');
+                           $mdDialog.hide();
+                      }
+                },
+                 function(error){
+                   if(error.status == 400) {
+                      $scope.createAccountErrorMessage = "Cannot save current account data. Please try again later!";
+                  }
                 });
         }
 
