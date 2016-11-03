@@ -8,8 +8,6 @@
      function ManageAccountController($scope, $state,$rootScope, $mdDialog, ManageAccountService) {
 
         var vm = this;
-        $scope.closeDialog = closeDialog;
-
         $scope.bankAccounts = null
 
         $scope.initialAmount = null;
@@ -20,6 +18,7 @@
 
         $scope.getBankAccounts = getBankAccounts;
         $scope.reorder = reorder;
+        $scope.deleteBankAccount = deleteBankAccount;
 
 
         $scope.query = {
@@ -30,8 +29,12 @@
 
         getBankAccounts($scope.query.page);
 
-        function closeDialog()  {
-            $mdDialog.hide();
+        function deleteBankAccount(id) {
+            ManageAccountService.deleteBankAccount(id)
+                .then(function (data) {
+                     $scope.query.page = 1;
+                     $scope.getBankAccounts($scope.query.page);
+                });
         }
 
         function reorder(data) {

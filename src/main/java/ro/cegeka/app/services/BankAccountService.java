@@ -31,7 +31,7 @@ public class BankAccountService {
         } else {
             option = option.substring(option.indexOf('-') + 1);
         }
-        return bankAccountsRepository.findByUser(user, new PageRequest(page-1, limit, direction, option));
+        return bankAccountsRepository.findByUser(user, new PageRequest(page - 1, limit, direction, option));
     }
 
     public void saveBankAccount(BankAccountDTO bankAccountDto) {
@@ -49,4 +49,7 @@ public class BankAccountService {
     }
 
 
+    public void deleteAccount(Long id) {
+        bankAccountsRepository.delete(id);
+    }
 }

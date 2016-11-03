@@ -35,4 +35,10 @@ public class BankAccountResource {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{account_id}", method = RequestMethod.DELETE)
+    public ResponseEntity deleteAccount(@PathVariable("account_id") Long id) {
+        bankAccountService.deleteAccount(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
 }
