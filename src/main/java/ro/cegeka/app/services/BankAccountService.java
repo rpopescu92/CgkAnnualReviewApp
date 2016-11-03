@@ -1,50 +1,44 @@
 package ro.cegeka.app.services;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
+import org.iban4j.CountryCode;
+import org.iban4j.Iban;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import ro.cegeka.app.domain.model.BankAccount;
 import ro.cegeka.app.domain.model.User;
 import ro.cegeka.app.domain.repository.BankAccountsRepository;
+import ro.cegeka.app.dto.BankAccountDTO;
+
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class BankAccountService {
 
-	@Autowired
-	private BankAccountsRepository bankAccountsRepository;
+    @Autowired
+    private BankAccountsRepository bankAccountsRepository;
 
-	public void init() {
-		for (int i = 0; i < 10; i++) {
-			bankAccountsRepository.save(BankAccount.builder().
-					id(Long.valueOf(i)).
-					accountNumber("100" + i).
-					build());        
-		}
-	}
+    @Autowired
+    private UserService userService;
 
-	public List<BankAccount> getAccountsByUser(String user){
-		List<BankAccount> listAccs = new ArrayList<>();
-		init();
+    public List<BankAccount> getBankAccountsByUser() {
+        User user = userService.getAuthenticatedUser();
+        return bankAccountsRepository.findByUser(user);
+    }
 
-		BankAccount ba = BankAccount.builder().
-				id(Long.valueOf(1)).
-				accountNumber("1234").
-				balance( new BigDecimal(Long.valueOf(12))).
-				build();                
-		listAccs.add( ba );
+    public void saveBankAccount(BankAccountDTO bankAccountDto) {
+        Iban iban = Iban.random(CountryCode.RO);
 
-		return listAccs;     
-	}
+        BankAccount bankAccount = BankAccount.builder().accountNumber(iban.getAccountNumber())
+                .balance(bankAccountDto.getInitialAmount())
+                .intialAmount(bankAccountDto.getInitialAmount())
+                .currency(bankAccountDto.getCurrency())
+                .user(userService.getAuthenticatedUser())
+                .createDate(new Date())
+                .accountType(bankAccountDto.getAccountType())
+                .build();
+        bankAccountsRepository.save(bankAccount);
+    }
 
-	public void saveAccount(BankAccount bankAccount){
-		bankAccountsRepository.save(bankAccount);
-	}
 
-	public List<BankAccount> getBankAccountsByUser(User user) {
-		return bankAccountsRepository.findByUser(user);
-	}
 }

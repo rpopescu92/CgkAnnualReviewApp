@@ -15,7 +15,7 @@
 
             function createNewAccount(data){
                 return $http({
-                      url:'api/accounts',
+                      url:'api/bank-accounts',
                       data: data,
                       method: 'POST'
                 });
@@ -23,7 +23,7 @@
 
             function getAccounts(data) {
                 return $http({
-                    url:'api/accounts',
+                    url:'api/bank-accounts',
                     data: data,
                     method: 'GET'
                 });
