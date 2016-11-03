@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.persistence.spi.LoadState;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Created by roxanap on 03.11.2016.
@@ -31,5 +32,7 @@ public class Transaction {
 
     private String destinationAccount;
 
-    private String date;
+    private Date date;
+    private String dateString;
+    private String month;
 }

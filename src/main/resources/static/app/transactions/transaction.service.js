@@ -10,7 +10,8 @@
 
     function TransactionsService($http) {
         return {
-            createTransaction: createTransaction
+            createTransaction: createTransaction,
+            getLastTransaction: getLastTransaction
         }
 
         function createTransaction(transaction) {
@@ -18,6 +19,13 @@
                 url: '/api/transactions',
                 data: transaction,
                 method: 'POST'
+            });
+        };
+
+        function getLastTransaction() {
+            return $http({
+                url: '/api/transactions',
+                method: 'GET'
             });
         }
     }

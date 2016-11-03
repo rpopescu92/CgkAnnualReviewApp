@@ -1,9 +1,19 @@
 <div class="row" ng-controller="TransactionsController">
     <div class="col-md-12">
-        Last 5 transactions
         <div class="col-md-6" ng-repeat="tr in transactions">
-
+            <div class="row">
+                <div class="col-md-12">
+                    <md-card>
+                        <md-card-content>
+                            <b>Destination Account:</b> <span>{{tr.destinationAccount}}</span>
+                            <br>
+                            <b>Amount:</b> <span>{{tr.amount}}</span>
+                            <br>
+                            <b>Date:</b> <span>{{tr.dateString}}</span>
+                        </md-card-content>
+                    </md-card>
+                </div>
+            </div>
         </div>
-
     </div>
 </div>

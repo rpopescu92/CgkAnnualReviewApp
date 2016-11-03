@@ -5,10 +5,19 @@
         .module('bankApp')
         .controller('TransactionsController',TransactionsController);
 
-    TransactionsController.$inject = ['$scope'];
+    TransactionsController.$inject = ['$scope', 'TransactionsService'];
 
-    function TransactionsController($scope) {
+    function TransactionsController($scope, TransactionsService) {
 
+        $scope.transactions = [];
+        init();
+
+        function init(){
+            TransactionsService.getLastTransaction()
+                    .then(function(data){
+                        $scope.transactions = data.data;
+                    });
+        };
     }
 
 })();

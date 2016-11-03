@@ -1,6 +1,7 @@
 package ro.cegeka.app.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ro.cegeka.app.domain.model.BankAccount;
 import ro.cegeka.app.domain.model.Transaction;
@@ -34,7 +35,8 @@ public class TransactionService {
         BankAccount bankAccountSender = updateBalance(transactionDTO);
 
         Transaction transaction = Transaction.builder().amount(transactionDTO.getAmount())
-                                    .date(date)
+                                    .date(new Date())
+                                    .dateString(date)
                                     .sendAccount(bankAccountSender)
                                     .destinationAccount(transactionDTO.getDestinationAccount())
                                     .user(user).build();
@@ -45,10 +47,15 @@ public class TransactionService {
         return transactionRepository.findByUser(userService.getAuthenticatedUser());
     }
 
+    public List<Transaction> getLastTransactions(){
+        return transactionRepository.getLastTransactions(userService.getAuthenticatedUser().getId(), new PageRequest(0,6));
+    }
+
     private BankAccount updateBalance(TransactionDTO transactionDTO) {
         String bankAccountSender = transactionDTO.getSendAccount();
         BankAccount bankAccount = bankAccountsRepository.findByUserAndAccountNumber(userService.getAuthenticatedUser(),bankAccountSender);
         bankAccount.setBalance(BigDecimal.valueOf(bankAccount.getBalance().longValue()-transactionDTO.getAmount().longValue()));
         return bankAccount;
     }
+
 }

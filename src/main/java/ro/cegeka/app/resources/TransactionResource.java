@@ -11,6 +11,8 @@ import ro.cegeka.app.domain.model.Transaction;
 import ro.cegeka.app.dto.TransactionDTO;
 import ro.cegeka.app.services.TransactionService;
 
+import java.util.List;
+
 /**
  * Created by roxanap on 03.11.2016.
  */
@@ -27,7 +29,12 @@ public class TransactionResource {
             transactionService.createTransaction(transactionDTO);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (Exception ex){
-            return new ResponseEntity<Transaction>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<Transaction>> getLastTransactions() {
+        return new ResponseEntity<>(transactionService.getLastTransactions(),HttpStatus.OK);
     }
 }
