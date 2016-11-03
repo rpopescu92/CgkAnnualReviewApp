@@ -17,6 +17,13 @@
         $scope.currency = null;
         $scope.accountType = null;
         $scope.createAccountErrorMessage = null;
+        $scope.selected = [];
+
+         $scope.query = {
+            order: 'accountType',
+            limit: 7,
+            page: 1
+          };
 
 
         function closeDialog()  {
@@ -48,7 +55,7 @@
             ManageAccountService.getAccounts()
                 .then(function(response){
                     if(response.status == 200){
-
+                        $scope.bankAccounts = response.data;
                     }
                 },
                 function(error){
