@@ -4,18 +4,17 @@
     <div class="row cardsTable">
         <div class="col-md-12">
             <md-content class="md-padding col-md-6">
-
                 <md-card>
                     <md-card-title>
-                        Balance
+                        Transactions by month
                         <md-card-title-text>
                         </md-card-title-text>
                     </md-card-title>
                     <md-card-content>
-
+                        <div ng-include="'app/charts/charts.html'"></div>
                     </md-card-content>
                     <md-card-actions layout="row" layout-align="end center">
-                        <md-button ng-click="seeAllBalance()">See all accounts balance</md-button>
+                        <!--<md-button ng-click="seeAllBalance()">See all accounts balance</md-button>-->
                     </md-card-actions>
                 </md-card>
 
@@ -37,6 +36,22 @@
                     </md-card-content>
                     <md-card-actions layout="row" layout-align="end center">
                         <md-button ng-click="createNewAccount()">Create new account</md-button>
+                    </md-card-actions>
+                </md-card>
+            </md-content>
+            <md-content class="md-padding col-md-6">
+
+                <md-card>
+                    <md-card-title>
+                        Balance
+                        <md-card-title-text>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="seeAllBalance()">See all accounts balance</md-button>
                     </md-card-actions>
                 </md-card>
 
