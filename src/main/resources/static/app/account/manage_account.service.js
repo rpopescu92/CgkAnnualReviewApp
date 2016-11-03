@@ -9,9 +9,24 @@
      function ManageAccountService($http) {
             return {
                 createNewAccount: createNewAccount,
-                getAccounts: getAccounts
+                getAccounts: getAccounts,
+                deleteBankAccount: deleteBankAccount,
+                getAccountNames: getAccountNames
             }
 
+            function getAccountNames() {
+                return $http({
+                    url: '/api/bank-accounts/names',
+                    method: 'GET'
+                });
+            }
+
+            function deleteBankAccount(id) {
+                return $http({
+                    url: '/api/bank-accounts/'+id,
+                    method: 'DELETE'
+                });
+            }
 
             function createNewAccount(data){
                 return $http({

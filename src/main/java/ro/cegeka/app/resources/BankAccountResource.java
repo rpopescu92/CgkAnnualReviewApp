@@ -12,6 +12,8 @@ import ro.cegeka.app.dto.BankAccountDTO;
 import ro.cegeka.app.services.BankAccountService;
 import ro.cegeka.app.services.UserService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/bank-accounts")
 public class BankAccountResource {
@@ -29,9 +31,20 @@ public class BankAccountResource {
         return new ResponseEntity<>(bankAccountService.getBankAccountsByUser(page, limit, order), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/names", method = RequestMethod.GET)
+    public ResponseEntity<List<BankAccount>> getBankAccountNames() {
+        return new ResponseEntity<>(bankAccountService.getBankAccountNamesByUser(), HttpStatus.OK);
+    }
+
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity saveBankAccount(@RequestBody BankAccountDTO bankAccountDto) {
         bankAccountService.saveBankAccount(bankAccountDto);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{account_id}", method = RequestMethod.DELETE)
+    public ResponseEntity deleteAccount(@PathVariable("account_id") Long id) {
+        bankAccountService.deleteAccount(id);
         return new ResponseEntity(HttpStatus.OK);
     }
 

@@ -14,6 +14,8 @@ import ro.cegeka.app.dto.BankAccountDTO;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BankAccountService {
@@ -32,7 +34,7 @@ public class BankAccountService {
         } else {
             option = option.substring(option.indexOf('-') + 1);
         }
-        return bankAccountsRepository.findByUser(user, new PageRequest(page-1, limit, direction, option));
+        return bankAccountsRepository.findByUser(user, new PageRequest(page - 1, limit, direction, option));
     }
 
     public void saveBankAccount(BankAccountDTO bankAccountDto) {
@@ -52,4 +54,12 @@ public class BankAccountService {
     }
 
 
+    public void deleteAccount(Long id) {
+        bankAccountsRepository.delete(id);
+    }
+
+    public List<BankAccount> getBankAccountNamesByUser() {
+        User user = userService.getAuthenticatedUser();
+        return bankAccountsRepository.findByUser(user);
+    }
 }

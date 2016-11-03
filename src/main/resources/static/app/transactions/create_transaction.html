@@ -1,0 +1,54 @@
+<md-dialog style="width:500px;">
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div class="col-md-12">
+                <md-card-content>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <md-input-container class="registerForm">
+                                    <label>Your Account</label>
+                                    <md-select ng-model="currency">
+                                        <md-option ng-value="account" ng-repeat="account in accounts"
+                                                   ng-model="transaction.sendAccount">{{account.accountNumber}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="selectedAccountBalance">
+                            <div class="col-md-12">
+                                <md-input-container class="registerForm">
+                                    <label>Available amount</label>
+                                    <span>{{selectedAccountBalance}}</span>
+
+                                </md-input-container>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <md-input-container class="registerForm">
+                                    <label>Send amount</label>
+                                    <input type="text" ng-model="transaction.sendAmount">
+                                </md-input-container>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <md-input-container class="registerForm">
+                                    <label>Destination Account</label>
+                                    <input type="text" ng-model="transaction.destinationAccount">
+                                </md-input-container>
+                            </div>
+                        </div>
+
+                    </form>
+                </md-card-content>
+            </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="send()">Send</md-button>
+        <md-button ng-click="hide()">Close</md-button>
+    </md-dialog-actions>
+</md-dialog>

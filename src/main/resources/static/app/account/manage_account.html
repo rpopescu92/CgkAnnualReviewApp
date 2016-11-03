@@ -20,6 +20,9 @@
                     <td md-cell>{{bankAccount.balance}}</td>
                     <td md-cell>{{bankAccount.currency}}</td>
                     <td md-cell>{{bankAccount.createdDate}}</td>
+                    <td md-cell>
+                        <div ng-click="deleteBankAccount(bankAccount.id)">DELETE</div>
+                    </td>
                 </tr>
                 </tbody>
             </table>
