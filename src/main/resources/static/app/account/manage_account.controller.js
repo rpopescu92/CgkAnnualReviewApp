@@ -62,7 +62,11 @@
                     }
                 });
 
-        };
+        }
+
+        $rootScope.$on('refresh-data', function() {
+             $scope.getBankAccounts($scope.query.page);
+        });
 
      }
 })();

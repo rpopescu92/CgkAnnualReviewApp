@@ -6,12 +6,14 @@
         .module('bankApp')
         .controller('ChartsController', ChartsController);
 
-    ChartsController.$inject = ['$scope','TransactionsService'];
+    ChartsController.$inject = ['$scope','$rootScope', 'TransactionsService'];
 
-    function ChartsController($scope, TransactionsService) {
+    function ChartsController($scope, $rootScope, TransactionsService) {
+        var vm = this;
+
         $scope.labels = [];
         $scope.data = [];
-
+        vm.init = init;
         init();
 
         function init() {
@@ -25,6 +27,10 @@
                 });
 
         }
+
+        $rootScope.$on('refresh-data', function() {
+            vm.init();
+        });
 
     }
 

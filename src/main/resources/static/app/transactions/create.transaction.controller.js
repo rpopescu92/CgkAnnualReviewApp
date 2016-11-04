@@ -24,15 +24,6 @@
                 });
         }
 
-        $scope.$watch('transaction', function() {
-            console.log('changed');
-            $scope.accounts.map(function (item) {
-                if(item.accountName === $scope.transaction.sendAccount) {
-                    $scope.selectedAccountBalance = item.balance;
-                }
-            })
-        });
-
         function send() {
             console.log($scope.transaction);
             TransactionsService.createTransaction($scope.transaction)
@@ -40,6 +31,7 @@
                     if(response.status == 200){
                            //$rootScope.$emit('load-transactions');
                            $mdDialog.hide();
+                            $rootScope.$emit('refresh-data');
                       }
                 },
                  function(error){
