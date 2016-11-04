@@ -11,11 +11,13 @@ import ro.cegeka.app.domain.repository.TransactionRepository;
 import ro.cegeka.app.dto.TransactionDTO;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Month;
+import java.time.Year;
 import java.time.ZonedDateTime;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.time.temporal.TemporalAccessor;
+import java.util.*;
 
 /**
  * Created by roxanap on 03.11.2016.
@@ -52,11 +54,9 @@ public class TransactionService {
         return transactionRepository.getLastTransactions(userService.getAuthenticatedUser().getId(), new PageRequest(0,6));
     }
 
-    //TODO
-    public List<BigDecimal> getAmountForCurrentMonth() {
-        String currentMonthDate = ZonedDateTime.now().getMonthValue() + "/" + ZonedDateTime.now().getYear();
-        List<Transaction> transactions = transactionRepository.findByDateStringLike(currentMonthDate);
-        return null;
+    public List<Transaction> getAmountForCurrentMonth() {
+        String currentMonthDate = getFormatedMonthDateYear(ZonedDateTime.now().getMonth());
+        return transactionRepository.findByDateStringContaining(currentMonthDate);
     }
 
     private BankAccount updateBalance(TransactionDTO transactionDTO) {
@@ -66,4 +66,27 @@ public class TransactionService {
         return bankAccount;
     }
 
+    public List<BigDecimal> getYearlyTransactionAmount() {
+        List<BigDecimal> amounts = new ArrayList<>();
+        for(Month month : Month.values()) {
+            String date = getFormatedMonthDateYear(month);
+            List<Transaction> txs = transactionRepository.findByDateStringContaining(date);
+            BigDecimal amount = new BigDecimal(0);
+            for(Transaction tx : txs) {
+                amount = amount.add(tx.getAmount());
+            }
+            amounts.add(amount);
+        }
+        return amounts;
+    }
+
+    private String getFormatedMonthDateYear(Month month) {
+        String m = "";
+        if(month.getValue() <= 9) {
+            m += "0" + month.getValue();
+        } else {
+            m = "" + month.getValue();
+        }
+        return m + "/" + Year.now().getValue();
+    }
 }

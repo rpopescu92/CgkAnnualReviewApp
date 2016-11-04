@@ -6,11 +6,25 @@
         .module('bankApp')
         .controller('ChartsController', ChartsController);
 
-    ChartsController.$inject = ['$scope'];
+    ChartsController.$inject = ['$scope','TransactionsService'];
 
-    function ChartsController($scope) {
-        $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-        $scope.data = [23,33,414,55,232,551,5324];
+    function ChartsController($scope, TransactionsService) {
+        $scope.labels = [];
+        $scope.data = [];
+
+        init();
+
+        function init() {
+            TransactionsService.getMonths()
+                .then(function (data) {
+                    $scope.labels = data.data;
+                });
+            TransactionsService.getAllAmounts()
+                .then(function (data) {
+                    $scope.data = data.data;
+                });
+
+        }
 
     }
 

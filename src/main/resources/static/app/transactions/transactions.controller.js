@@ -17,6 +17,11 @@
                     .then(function(data){
                         $scope.transactions = data.data;
                     });
+            TransactionsService.getCurrentMonth()
+                        .then(function (data) {
+                            console.log(data);
+                        });
+
         };
     }
 

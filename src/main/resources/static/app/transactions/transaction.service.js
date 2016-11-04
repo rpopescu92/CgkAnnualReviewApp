@@ -11,7 +11,24 @@
     function TransactionsService($http) {
         return {
             createTransaction: createTransaction,
-            getLastTransaction: getLastTransaction
+            getLastTransaction: getLastTransaction,
+            getCurrentMonth: getCurrentMonth,
+            getMonths: getMonths,
+            getAllAmounts: getAllAmounts
+        }
+
+        function getAllAmounts() {
+            return $http({
+                url: '/api/transactions/yearly',
+                method: 'GET'
+            });
+        }
+
+        function getMonths() {
+            return $http({
+                url: '/api/transactions/months',
+                method: 'GET'
+            });
         }
 
         function createTransaction(transaction) {
@@ -25,6 +42,13 @@
         function getLastTransaction() {
             return $http({
                 url: '/api/transactions',
+                method: 'GET'
+            });
+        }
+
+        function getCurrentMonth() {
+            return $http({
+                url: '/api/transactions/current-month',
                 method: 'GET'
             });
         }

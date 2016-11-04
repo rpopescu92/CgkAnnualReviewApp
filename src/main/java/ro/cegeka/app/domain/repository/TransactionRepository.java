@@ -18,5 +18,5 @@ public interface TransactionRepository extends JpaRepository<Transaction,Long> {
     @Query(value = "select t from Transaction t where t.user.id = ?1 order by t.date desc")
     List<Transaction> getLastTransactions(Long userId, Pageable pageable);
 
-    List<Transaction> findByDateStringLike(String currentMonth);
+    List<Transaction> findByDateStringContaining(String currentMonth);
 }
