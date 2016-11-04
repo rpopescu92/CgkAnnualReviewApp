@@ -42,9 +42,9 @@
             getBankAccounts($scope.query.page);
         }
 
-        $rootScope.$on('load-bank-accounts', function(event,data) {
+        /*$rootScope.$on('load-bank-accounts', function(event,data) {
             $scope.getBankAccounts();
-        });
+        });*/
 
         function getBankAccounts(page) {
             $scope.query.page = page;
@@ -64,7 +64,7 @@
 
         }
 
-        $rootScope.$on('refresh-data', function() {
+        $rootScope.$on('load-bank-accounts', function() {
              $scope.getBankAccounts($scope.query.page);
         });
 
